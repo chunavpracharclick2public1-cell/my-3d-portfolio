@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Creative Developer</title>
+  
+  <!-- Spline 3D Web Component (Official Library) -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
+  
+  <!-- Google Fonts & Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0d1117;
+      color: #f0f6fc;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      background: rgba(22, 27, 34, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- HERO SECTION WITH 3D CHARACTER -->
+  <section class="min-h-screen relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 pt-10">
+    
+    <!-- Left Text & Greeting -->
+    <div class="z-10 max-w-xl text-center md:text-left mt-10 md:mt-0">
+      <div class="inline-block bg-blue-500/10 border border-blue-500/30 text-blue-400 font-semibold text-sm px-4 py-1.5 rounded-full mb-4">
+        👋 Interactive 3D Portfolio
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4">
+        Hello! I'm <span class="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Creative Developer</span>
+      </h1>
+      <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+        Building high-impact digital products, data insights, and dynamic visual web experiences.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <a href="#projects" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition-all text-center">
+          View Projects
+        </a>
+        <a href="#contact" class="glass-card hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-xl transition-all text-center">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+
+    <!-- Right 3D Interactive Canvas -->
+    <div class="w-full md:w-1/2 h-[450px] md:h-[600px] relative flex items-center justify-center">
+      <!-- PASTE YOUR SPLINE 3D URL IN THE url ATTRIBUTE BELOW -->
+      <spline-viewer url="https://prod.spline.design/6Wq1Q7YGyM-mab6X/scene.splinecode" class="w-full h-full"></spline-viewer>
+    </div>
+
+  </section>
+
+  <!-- FEATURED PROJECTS (BENTO GRID) -->
+  <section id="projects" class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-extrabold mb-2 text-center md:text-left">Featured Case Studies</h2>
+    <p class="text-gray-400 mb-10 text-center md:text-left">Selected work demonstrating problem-solving & metric-driven output.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Project Card 1 -->
+      <div class="glass-card p-6 rounded-2xl hover:border-blue-500/50 transition-all flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Web Development</span>
+          <h3 class="text-xl font-bold mt-2 mb-3">Interactive 3D Web Portal</h3>
+          <p class="text-gray-400 text-sm mb-4">Responsive web application integrating real-time 3D models with optimized page speed.</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-500">
+          <span>Tech: HTML, CSS, Spline</span>
+          <span class="text-green-400 font-semibold">+40% Engagement</span>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="glass-card p-6 rounded-2xl hover:border-blue-500/50 transition-all flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Data Analytics</span>
+          <h3 class="text-xl font-bold mt-2 mb-3">Sentiment Analysis Engine</h3>
+          <p class="text-gray-400 text-sm mb-4">Python-based data pipeline tracking trends and engagement metrics automatically.</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-500">
+          <span>Tech: Python, Pandas</span>
+          <span class="text-green-400 font-semibold">Automated Workflow</span>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="glass-card p-6 rounded-2xl hover:border-blue-500/50 transition-all flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">UI/UX Design</span>
+          <h3 class="text-xl font-bold mt-2 mb-3">Design System & Assets</h3>
+          <p class="text-gray-400 text-sm mb-4">Vector assets and branding guidelines created with modern digital graphics tools.</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-500">
+          <span>Tech: Illustrator, Photoshop</span>
+          <span class="text-green-400 font-semibold">100% Vector Precision</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="py-12 text-center text-gray-500 text-sm border-t border-gray-800/80">
+    <p>© 2026 Portfolio. Built safely with HTML, Spline 3D & Hosted on Vercel.</p>
+  </footer>
+
+</body>
+</html>
