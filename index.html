@@ -16,6 +16,7 @@
 
   <style>
     :root {
+      /* Brand Color Palette */
       --primary-blue: #0b42c6;
       --accent-purple: #7038cc;
       --accent-pink: #e63956;
@@ -23,14 +24,14 @@
       --bg-light: #f4f7fc;
       --bg-white: #ffffff;
       --bg-dark-deck: #0b101d;
-      --card-dark: #12192b;
       --border-light: #e1e8f5;
       --border-dark: rgba(255, 255, 255, 0.1);
       --text-dark: #0f172a;
       --text-muted: #64748b;
       --text-bright: #f8fafc;
 
-      --gradient-text: linear-gradient(135deg, #0b42c6 0%, #7038cc 50%, #e63956 100%);
+      /* Full Gradient mapping across font headline */
+      --gradient-text: linear-gradient(135deg, #0b42c6 0%, #7038cc 45%, #e63956 100%);
       --gradient-btn: linear-gradient(135deg, #0b42c6 0%, #7038cc 100%);
     }
 
@@ -57,12 +58,12 @@
       box-shadow: 0 0 50px rgba(11, 66, 198, 0.06);
     }
 
-    /* Navigation Header */
+    /* Top Navigation Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 2rem;
+      padding: 1.25rem 2.5rem;
       background: var(--bg-white);
       border-bottom: 1px solid var(--border-light);
       position: sticky;
@@ -78,8 +79,8 @@
     }
 
     .logo-badge {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       background: var(--bg-dark-deck);
       border-radius: 12px;
       display: flex;
@@ -93,13 +94,13 @@
     .brand-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 800;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--text-dark);
       line-height: 1.1;
     }
 
     .brand-subtitle {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: var(--primary-blue);
       font-weight: 700;
       letter-spacing: 1px;
@@ -107,14 +108,14 @@
 
     nav {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.8rem;
     }
 
     nav a {
       text-decoration: none;
       color: var(--text-muted);
       font-weight: 600;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       transition: color 0.2s ease;
     }
 
@@ -124,7 +125,7 @@
 
     /* Hero Banner Section */
     .hero-banner {
-      padding: 3.5rem 2rem 3rem;
+      padding: 3.5rem 2.5rem 3rem;
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: 2.5rem;
@@ -135,18 +136,19 @@
 
     .big-heading {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
       font-weight: 800;
-      line-height: 1;
+      line-height: 0.98;
       letter-spacing: -1.5px;
       margin-bottom: 1.25rem;
+      color: var(--text-dark);
     }
 
     .gradient-word {
       background: var(--gradient-text);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: block;
+      display: inline-block;
     }
 
     .hero-tagline {
@@ -165,11 +167,11 @@
     }
 
     .btn {
-      padding: 12px 26px;
+      padding: 13px 28px;
       border-radius: 12px;
       font-weight: 700;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
@@ -183,13 +185,23 @@
       box-shadow: 0 8px 24px rgba(11, 66, 198, 0.3);
     }
 
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(11, 66, 198, 0.4);
+    }
+
     .btn-outline {
       border: 2px solid var(--border-light);
       color: var(--text-dark);
       background: var(--bg-white);
     }
 
-    /* Interactive Data Deck Frame */
+    .btn-outline:hover {
+      border-color: var(--primary-blue);
+      color: var(--primary-blue);
+    }
+
+    /* Executive Interactive Data Deck */
     .deck-frame {
       background: var(--bg-dark-deck);
       border-radius: 20px;
@@ -219,7 +231,7 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-dark);
       color: var(--text-muted);
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
       font-size: 0.72rem;
       font-weight: 700;
@@ -233,7 +245,7 @@
     }
 
     .spline-container {
-      height: 320px;
+      height: 330px;
       width: 100%;
       border-radius: 14px;
       overflow: hidden;
@@ -245,16 +257,16 @@
       height: 100%;
     }
 
-    /* Content Grid Section */
+    /* Methodology & Research Modules Grid */
     .main-content {
-      padding: 3.5rem 2rem;
+      padding: 3.5rem 2.5rem;
       background: var(--bg-light);
       border-top: 1px solid var(--border-light);
     }
 
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 800;
       margin-bottom: 0.5rem;
       color: var(--text-dark);
@@ -278,18 +290,24 @@
       border-radius: 18px;
       padding: 1.75rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .research-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary-blue);
     }
 
     .card-badge {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 12px;
       background: rgba(11, 66, 198, 0.08);
       color: var(--primary-blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin-bottom: 1rem;
     }
 
@@ -303,24 +321,24 @@
     .research-card p {
       color: var(--text-muted);
       font-size: 0.9rem;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* Footer */
     footer {
-      padding: 2rem;
+      padding: 2rem 2.5rem;
       background: var(--bg-white);
       border-top: 1px solid var(--border-light);
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       flex-wrap: wrap;
       gap: 1rem;
     }
 
-    /* Responsive Breakpoints */
+    /* Mobile Breakpoints */
     @media (max-width: 992px) {
       .hero-banner {
         grid-template-columns: 1fr;
@@ -357,7 +375,7 @@
         width: 100%;
       }
       .spline-container {
-        height: 260px;
+        height: 270px;
       }
     }
   </style>
@@ -366,6 +384,7 @@
 
   <div class="app-wrapper">
 
+    <!-- Header Navigation -->
     <header>
       <a href="#" class="brand-logo">
         <div class="logo-badge"><i class="fa-solid fa-chart-pie"></i></div>
@@ -383,13 +402,14 @@
       </nav>
     </header>
 
+    <!-- Hero Branding Section -->
     <section class="hero-banner" id="summary">
       <div class="banner-left">
         <h1 class="big-heading">
           BEST<br>
-          <span class="gradient-word">PORTFOLIO</span>
+          <span class="gradient-word">PORTFOLIO</span><br>
           FOR DATA &<br>
-          <span style="color: var(--accent-pink);">POLITICS</span>
+          <span class="gradient-word">POLITICS</span>
         </h1>
 
         <p class="hero-tagline">
@@ -406,6 +426,7 @@
         </div>
       </div>
 
+      <!-- Dark Interactive Live Data Workspace -->
       <div class="deck-frame" id="political">
         <div class="deck-header">
           <div style="font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">
@@ -424,6 +445,7 @@
       </div>
     </section>
 
+    <!-- Content Modules -->
     <section class="main-content" id="methodology">
       <h2 class="section-title">Methodology & Research Modules</h2>
       <p class="section-desc">Integrating statistical polling, spatial election mapping, and social sentiment models.</p>
@@ -455,6 +477,7 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer id="contact">
       <div>© 2026 Chavin Narang | Data Analyst & Political Researcher</div>
       <div style="font-weight: 600; color: var(--primary-blue);">Panipat, Haryana</div>
