@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chavin Narang | Data Analyst & Political Researcher</title>
-  
+
+  <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
@@ -15,9 +16,11 @@
       --primary-blue: #0b42c6;
       --accent-purple: #7038cc;
       --accent-pink: #e63956;
+      --bg-light: #f4f7fc;
       --bg-white: #ffffff;
       --bg-dark-deck: #0b101d;
       --border-light: #e1e8f5;
+      --border-dark: rgba(255, 255, 255, 0.1);
       --text-dark: #0f172a;
       --text-muted: #64748b;
       --gradient-text: linear-gradient(135deg, #0b42c6 0%, #7038cc 45%, #e63956 100%);
@@ -32,34 +35,19 @@
     }
 
     body {
-      background-color: var(--bg-white);
+      background-color: var(--bg-light);
       color: var(--text-dark);
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Outer Wrapper with Left (White) to Right (Blue Tech Space) Theme */
     .app-wrapper {
-      max-width: 1500px;
+      max-width: 1400px;
       margin: 0 auto;
-      background: linear-gradient(105deg, #ffffff 0%, #ffffff 42%, #0a1738 78%, #080f24 100%);
+      background: var(--bg-white);
       min-height: 100vh;
-      position: relative;
-    }
-
-    /* Tech space digital background graphics on right */
-    .app-wrapper::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 55%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 80% 30%, rgba(11, 66, 198, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(112, 56, 204, 0.2) 0%, transparent 40%);
-      pointer-events: none;
+      box-shadow: 0 0 50px rgba(11, 66, 198, 0.06);
     }
 
     /* Header */
@@ -67,9 +55,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 3rem;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      padding: 1.25rem 2.5rem;
+      background: var(--bg-white);
       border-bottom: 1px solid var(--border-light);
       position: sticky;
       top: 0;
@@ -112,7 +99,7 @@
 
     nav {
       display: flex;
-      gap: 2rem;
+      gap: 1.8rem;
     }
 
     nav a {
@@ -126,20 +113,19 @@
       color: var(--primary-blue);
     }
 
-    /* Hero Banner Grid */
+    /* Hero Banner */
     .hero-banner {
-      padding: 4rem 3rem;
+      padding: 3.5rem 2.5rem;
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: 0.85fr 1.15fr;
       gap: 2rem;
       align-items: center;
-      position: relative;
-      z-index: 2;
+      background: radial-gradient(circle at 10% 20%, rgba(11, 66, 198, 0.03) 0%, transparent 50%);
     }
 
     .big-heading {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.8rem, 4.8vw, 4.2rem);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
       font-weight: 800;
       line-height: 0.98;
       letter-spacing: -1.5px;
@@ -154,12 +140,11 @@
     }
 
     .hero-tagline {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
       border-left: 4px solid var(--primary-blue);
       padding-left: 1rem;
       margin-bottom: 2rem;
-      color: #334155;
     }
 
     .btn-group {
@@ -190,296 +175,180 @@
       background: var(--bg-white);
     }
 
-    /* 3D Studio Stage & Realistic Laptop Presentation */
-    .stage-container {
+    /* 3D Scene Components (Laptop, Diary, Ballot Box) */
+    .scene-stage {
       position: relative;
-      perspective: 1200px;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    /* Floating 3D Navigation Icon Top-Right */
-    .floating-compass-icon {
-      position: absolute;
-      top: -10px;
-      right: 40px;
-      width: 65px;
-      height: 65px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60a5fa;
-      font-size: 1.8rem;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-      z-index: 10;
-    }
-
-    /* Realistic 3D Laptop Assembly */
-    .laptop-wrapper {
-      transform: rotateX(8deg) rotateY(-6deg) rotateZ(1deg);
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease;
-      width: 100%;
-      max-width: 640px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .laptop-wrapper:hover {
-      transform: rotateX(2deg) rotateY(-2deg) rotateZ(0deg);
-    }
-
-    /* Screen Lid */
-    .laptop-lid {
+    /* CSS Laptop Mockup */
+    .laptop-outer {
       background: #0d1322;
-      border-radius: 16px 16px 4px 4px;
-      padding: 10px 10px 0 10px;
-      border: 2px solid #334155;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.5);
-      position: relative;
+      border-radius: 20px 20px 4px 4px;
+      padding: 12px 12px 0 12px;
+      box-shadow: 0 25px 50px rgba(11, 66, 198, 0.25);
+      border: 2px solid #2d3748;
     }
 
-    /* Web Cam Notch */
-    .camera-notch {
-      width: 60px;
-      height: 6px;
-      background: #1e293b;
-      margin: 0 auto 6px;
-      border-radius: 0 0 6px 6px;
-    }
-
-    /* Laptop Display Screen Content */
     .laptop-screen {
-      background: #070d19;
-      border-radius: 8px 8px 0 0;
+      background: #0b101d;
+      border-radius: 12px 12px 0 0;
       padding: 1rem;
       color: #fff;
-      min-height: 330px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      overflow: hidden;
+      min-height: 280px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .screen-nav {
+    .laptop-screen-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 0.8rem;
+      padding-bottom: 0.75rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       margin-bottom: 1rem;
-      font-size: 0.75rem;
     }
 
-    .screen-hero-text h4 {
-      font-size: 1.1rem;
-      font-family: 'Space Grotesk', sans-serif;
-      color: #60a5fa;
-    }
-
-    .screen-hero-text p {
-      font-size: 0.72rem;
-      color: #94a3b8;
-      margin-bottom: 1rem;
-    }
-
-    .screen-dashboard-grid {
+    .dashboard-preview {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .map-preview-box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 10px;
-      height: 140px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #38bdf8;
-    }
-
-    .map-preview-box i {
-      font-size: 2.5rem;
-      opacity: 0.8;
-      margin-bottom: 6px;
-    }
-
-    .stats-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .stat-mini-card {
+    .dash-card {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 8px;
-      padding: 8px 12px;
-      font-size: 0.75rem;
+      padding: 12px;
+      font-size: 0.8rem;
     }
 
-    /* Laptop Base / Keyboard Deck */
-    .laptop-base {
-      height: 18px;
-      background: linear-gradient(180deg, #cbd5e1 0%, #64748b 100%);
+    .laptop-keyboard-base {
+      height: 16px;
+      background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);
       border-radius: 0 0 16px 16px;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
       position: relative;
+      margin-top: 2px;
     }
 
-    .trackpad-indent {
-      width: 70px;
+    .laptop-notch {
+      width: 60px;
       height: 4px;
-      background: #475569;
+      background: #64748b;
       margin: 0 auto;
       border-radius: 0 0 4px 4px;
     }
 
-    /* Circular Studio Pedestal Base */
-    .pedestal-stage {
-      width: 110%;
-      height: 90px;
-      background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
-      border-radius: 50%;
-      margin-top: -35px;
-      transform: rotateX(60deg);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.3), inset 0 2px 10px rgba(255,255,255,0.8);
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Left Floating 3D Cube Icon */
-    .floating-3d-cube {
-      position: absolute;
-      left: -20px;
-      bottom: 40px;
-      width: 75px;
-      height: 75px;
-      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
-      border-radius: 20px;
+    /* Floating Diary & Poll Box Elements */
+    .extra-assets-row {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.8rem;
-      box-shadow: -10px 20px 30px rgba(59, 130, 246, 0.4), inset 2px 2px 6px rgba(255,255,255,0.4);
-      transform: rotate(-12deg) rotateY(15deg);
-      z-index: 4;
+      gap: 15px;
+      margin-top: 15px;
     }
 
-    /* Right Floating 3D Poll Card */
-    .floating-poll-card {
-      position: absolute;
-      right: -10px;
-      bottom: 30px;
-      width: 110px;
+    .css-diary {
+      flex: 2;
       background: #ffffff;
-      border-radius: 16px;
-      padding: 12px 10px;
-      text-align: center;
-      box-shadow: 10px 20px 35px rgba(0,0,0,0.25);
-      border: 1px solid #f1f5f9;
-      transform: rotate(8deg) rotateY(-10deg);
-      z-index: 4;
+      border: 1px solid var(--border-light);
+      border-left: 8px solid var(--accent-purple);
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
     }
 
-    .floating-poll-card i {
-      font-size: 1.6rem;
-      color: #e63956;
+    .css-diary h4 {
+      font-size: 0.85rem;
+      color: var(--primary-blue);
       margin-bottom: 4px;
     }
 
-    .floating-poll-card span {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: var(--text-dark);
-      letter-spacing: 0.5px;
-    }
-
-    /* Bottom Overlay Cards */
-    .overlay-cards-row {
-      display: flex;
-      gap: 15px;
-      margin-top: 25px;
-      width: 100%;
-      max-width: 640px;
-      position: relative;
-      z-index: 5;
-    }
-
-    .case-study-card {
-      flex: 1.6;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 14px 16px;
-      border-left: 6px solid var(--primary-blue);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .case-study-card h5 {
-      color: var(--primary-blue);
-      font-size: 0.85rem;
-      font-weight: 800;
-      margin-bottom: 2px;
-    }
-
-    .case-study-card p {
+    .css-diary p {
       font-size: 0.75rem;
       color: var(--text-muted);
     }
 
-    .poll-box-badge {
+    .css-poll-box {
       flex: 1;
       background: #ffffff;
       border: 2px solid var(--accent-pink);
       border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       padding: 10px;
-      box-shadow: 0 10px 25px rgba(230, 57, 86, 0.15);
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(230, 57, 86, 0.1);
     }
 
-    .poll-box-badge i {
+    .css-poll-box i {
+      font-size: 1.5rem;
       color: var(--accent-pink);
-      font-size: 1.2rem;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
-    .poll-box-badge span {
-      font-size: 0.75rem;
+    .css-poll-box span {
+      display: block;
+      font-size: 0.7rem;
       font-weight: 800;
       color: var(--text-dark);
+      letter-spacing: 1px;
     }
 
-    /* Footer */
+    /* Modules Section */
+    .main-content {
+      padding: 3.5rem 2.5rem;
+      background: var(--bg-light);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .research-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .card-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(11, 66, 198, 0.08);
+      color: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
     footer {
-      padding: 2rem 3rem;
+      padding: 2rem 2.5rem;
       background: var(--bg-white);
       border-top: 1px solid var(--border-light);
       display: flex;
       justify-content: space-between;
       color: var(--text-muted);
       font-size: 0.88rem;
-      position: relative;
-      z-index: 2;
     }
 
     @media (max-width: 992px) {
-      .app-wrapper { background: var(--bg-white); }
       .hero-banner { grid-template-columns: 1fr; }
-      .floating-3d-cube, .floating-poll-card { display: none; }
+      .grid-3 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -487,7 +356,6 @@
 
   <div class="app-wrapper">
 
-    <!-- Header Navigation -->
     <header>
       <a href="#" class="brand-logo">
         <div class="logo-badge"><i class="fa-solid fa-chart-pie"></i></div>
@@ -496,7 +364,6 @@
           <div class="brand-subtitle">DATA & POLITICS</div>
         </div>
       </a>
-
       <nav>
         <a href="#summary" class="active">Executive Summary</a>
         <a href="#projects">Data Viz Projects</a>
@@ -505,10 +372,7 @@
       </nav>
     </header>
 
-    <!-- Main Hero Section -->
     <section class="hero-banner" id="summary">
-      
-      <!-- Left Hero Text (White area) -->
       <div class="banner-left">
         <h1 class="big-heading">
           BEST<br>
@@ -516,89 +380,49 @@
           FOR DATA &<br>
           <span class="gradient-word">POLITICS</span>
         </h1>
-
-        <p class="hero-tagline">
-          Actionable Data. Professional Research.
-        </p>
-
+        <p class="hero-tagline">Actionable Data. Professional Research.</p>
         <div class="btn-group">
           <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> Explore Projects</a>
           <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </div>
       </div>
 
-      <!-- Right 3D Studio Stage (Blue Space background area) -->
-      <div class="stage-container" id="political">
+      <!-- CSS 3D Physical Setup Stage -->
+      <div class="scene-stage" id="political">
         
-        <div class="floating-compass-icon">
-          <i class="fa-solid fa-compass-drafting"></i>
-        </div>
-
-        <!-- Floating 3D Blue Cube (Left of laptop) -->
-        <div class="floating-3d-cube">
-          <i class="fa-solid fa-table-cells-large"></i>
-        </div>
-
-        <!-- Realistic 3D Laptop Mockup -->
-        <div class="laptop-wrapper">
-          <div class="laptop-lid">
-            <div class="camera-notch"></div>
-            <div class="laptop-screen">
-              
-              <div class="screen-nav">
-                <span style="font-weight:700;"><i class="fa-solid fa-circle" style="color:#22c55e; margin-right:4px;"></i> LIVE DATA WORKSPACE</span>
-                <span style="color:#64748b;">2026 ANALYTICS</span>
+        <!-- Laptop Shell -->
+        <div class="laptop-outer">
+          <div class="laptop-screen">
+            <div class="laptop-screen-header">
+              <span style="font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-circle" style="color:#22c55e;"></i> LIVE ELECTORAL DATASETS</span>
+              <span style="font-size: 0.7rem; color: var(--text-muted);">2026 ANALYTICS</span>
+            </div>
+            <div class="dashboard-preview">
+              <div class="dash-card">
+                <i class="fa-solid fa-chart-line" style="color:var(--primary-blue);"></i>
+                <h5 style="margin-top: 5px;">Voter Sentiment</h5>
+                <p style="font-size: 0.7rem; color:#94a3b8;">+14.2% Regional Swing</p>
               </div>
-
-              <div class="screen-hero-text">
-                <h4>CHAVIN NARANG | DATA & POLITICS</h4>
-                <p>Bridging data-driven insights with strategic political research.</p>
+              <div class="dash-card">
+                <i class="fa-solid fa-map" style="color:var(--accent-pink);"></i>
+                <h5 style="margin-top: 5px;">Spatial Density</h5>
+                <p style="font-size: 0.7rem; color:#94a3b8;">49 AC Segments</p>
               </div>
-
-              <div class="screen-dashboard-grid">
-                <div class="map-preview-box">
-                  <i class="fa-solid fa-map-location-dot"></i>
-                  <span style="font-size:0.7rem; font-weight:700; color:#cbd5e1;">CONSTITUENCY MAP</span>
-                </div>
-                <div class="stats-stack">
-                  <div class="stat-mini-card">
-                    <i class="fa-solid fa-chart-line" style="color:#38bdf8;"></i>
-                    <strong style="color:#fff;"> Voter Sentiment</strong>
-                    <div style="color:#22c55e; font-size:0.7rem;">+14.2% Regional Swing</div>
-                  </div>
-                  <div class="stat-mini-card">
-                    <i class="fa-solid fa-layer-group" style="color:#f43f5e;"></i>
-                    <strong style="color:#fff;"> Spatial Density</strong>
-                    <div style="color:#94a3b8; font-size:0.7rem;">49 AC Segments</div>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
-          
-          <div class="laptop-base">
-            <div class="trackpad-indent"></div>
-          </div>
+        </div>
+        <div class="laptop-keyboard-base">
+          <div class="laptop-notch"></div>
         </div>
 
-        <!-- Floating 3D Poll Card (Right of laptop) -->
-        <div class="floating-poll-card">
-          <i class="fa-solid fa-box-archive"></i>
-          <span>POLL BOX</span>
-        </div>
-
-        <!-- Pedestal Base Studio Stage -->
-        <div class="pedestal-stage"></div>
-
-        <!-- Overlay Action Cards -->
-        <div class="overlay-cards-row">
-          <div class="case-study-card">
-            <h5>CASE STUDY: REGIONAL POLLING</h5>
+        <!-- Research Diary & Ballot Box -->
+        <div class="extra-assets-row">
+          <div class="css-diary">
+            <h4>CASE STUDY: REGIONAL POLLING</h4>
             <p>Methodology Overview & Fieldwork Logistics</p>
           </div>
-          <div class="poll-box-badge">
-            <i class="fa-solid fa-square-check"></i>
+          <div class="css-poll-box">
+            <i class="fa-solid fa-check-to-slot"></i>
             <span>POLL BOX</span>
           </div>
         </div>
@@ -606,7 +430,33 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <section class="main-content" id="methodology">
+      <h2 class="section-title">Methodology & Research Modules</h2>
+      <p class="section-desc">Integrating statistical polling, spatial election mapping, and social sentiment models.</p>
+
+      <div class="grid-3" id="projects">
+        <div class="research-card">
+          <div class="card-badge"><i class="fa-solid fa-map-location-dot"></i></div>
+          <h3>Assembly Segment Mapping</h3>
+          <p>Detailed spatial analysis and voter density clustering across target parliamentary and assembly constituencies.</p>
+        </div>
+        <div class="research-card">
+          <div class="card-badge" style="color: var(--accent-purple); background: rgba(112, 56, 204, 0.08);">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h3>Pre-Poll Sentiment Analysis</h3>
+          <p>Python pipelines tracking voter sentiment, keyword frequency, and digital campaign reach across regional demographics.</p>
+        </div>
+        <div class="research-card">
+          <div class="card-badge" style="color: var(--accent-pink); background: rgba(230, 57, 86, 0.08);">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h3>Campaign Resource Allocation</h3>
+          <p>Optimization algorithms directing ground workers and advertising spend towards critical battleground segments.</p>
+        </div>
+      </div>
+    </section>
+
     <footer id="contact">
       <div>© 2026 Chavin Narang | Data Analyst & Political Researcher</div>
       <div style="font-weight: 600; color: var(--primary-blue);">Panipat, Haryana</div>
