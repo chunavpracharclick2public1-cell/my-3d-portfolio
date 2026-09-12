@@ -11,12 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Spline Web Component -->
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
-
   <style>
     :root {
-      /* Brand Color Palette */
       --primary-blue: #0b42c6;
       --accent-purple: #7038cc;
       --accent-pink: #e63956;
@@ -28,9 +24,7 @@
       --border-dark: rgba(255, 255, 255, 0.1);
       --text-dark: #0f172a;
       --text-muted: #64748b;
-      --text-bright: #f8fafc;
 
-      /* Full Gradient mapping across font headline */
       --gradient-text: linear-gradient(135deg, #0b42c6 0%, #7038cc 45%, #e63956 100%);
       --gradient-btn: linear-gradient(135deg, #0b42c6 0%, #7038cc 100%);
     }
@@ -58,7 +52,7 @@
       box-shadow: 0 0 50px rgba(11, 66, 198, 0.06);
     }
 
-    /* Top Navigation Header */
+    /* Header Navigation */
     header {
       display: flex;
       justify-content: space-between;
@@ -88,7 +82,6 @@
       justify-content: center;
       color: var(--bg-white);
       font-size: 1.1rem;
-      box-shadow: 0 4px 12px rgba(11, 66, 198, 0.2);
     }
 
     .brand-title {
@@ -116,19 +109,18 @@
       color: var(--text-muted);
       font-weight: 600;
       font-size: 0.9rem;
-      transition: color 0.2s ease;
     }
 
     nav a:hover, nav a.active {
       color: var(--primary-blue);
     }
 
-    /* Hero Banner Section */
+    /* Hero Branding & Physical Mockup Section */
     .hero-banner {
-      padding: 3.5rem 2.5rem 3rem;
+      padding: 3rem 2.5rem 4rem;
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 2.5rem;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 2rem;
       align-items: center;
       background: radial-gradient(circle at 10% 20%, rgba(11, 66, 198, 0.03) 0%, transparent 50%),
                   radial-gradient(circle at 90% 80%, rgba(230, 57, 86, 0.03) 0%, transparent 50%);
@@ -136,7 +128,7 @@
 
     .big-heading {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-size: clamp(2.5rem, 4.2vw, 3.8rem);
       font-weight: 800;
       line-height: 0.98;
       letter-spacing: -1.5px;
@@ -172,10 +164,8 @@
       font-weight: 700;
       text-decoration: none;
       font-size: 0.92rem;
-      transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
     }
 
@@ -185,81 +175,163 @@
       box-shadow: 0 8px 24px rgba(11, 66, 198, 0.3);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(11, 66, 198, 0.4);
-    }
-
     .btn-outline {
       border: 2px solid var(--border-light);
       color: var(--text-dark);
       background: var(--bg-white);
     }
 
-    .btn-outline:hover {
-      border-color: var(--primary-blue);
-      color: var(--primary-blue);
+    /* --- PURE CSS PHYSICAL STUDIO & LAPTOP STAGE --- */
+    .studio-stage {
+      position: relative;
+      width: 100%;
+      perspective: 1000px;
     }
 
-    /* Executive Interactive Data Deck */
-    .deck-frame {
+    /* Pure CSS Laptop Body */
+    .laptop-frame {
+      background: #1e293b;
+      border: 12px solid #0f172a;
+      border-bottom: 16px solid #0f172a;
+      border-radius: 18px 18px 4px 4px;
+      box-shadow: 0 20px 40px rgba(11, 66, 198, 0.2);
+      overflow: hidden;
+      position: relative;
       background: var(--bg-dark-deck);
-      border-radius: 20px;
-      border: 1px solid rgba(11, 66, 198, 0.3);
-      padding: 1.5rem;
-      box-shadow: 0 25px 50px -12px rgba(11, 66, 198, 0.25);
-      color: var(--text-bright);
     }
 
-    .deck-header {
+    /* Laptop Screen Screen Header & UI */
+    .laptop-screen-content {
+      padding: 1.25rem;
+      color: #fff;
+      min-height: 280px;
+    }
+
+    .laptop-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border-dark);
-      gap: 10px;
-      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .deck-pills {
-      display: flex;
-      gap: 0.4rem;
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
     }
 
-    .deck-pill {
+    .screen-dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .dash-card {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-dark);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .dash-card h4 {
+      font-size: 0.8rem;
       color: var(--text-muted);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.72rem;
-      font-weight: 700;
       text-transform: uppercase;
+      margin-bottom: 0.5rem;
     }
 
-    .deck-pill.active {
-      background: var(--primary-blue);
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 800;
       color: #fff;
-      border-color: var(--primary-blue);
     }
 
-    .spline-container {
-      height: 330px;
-      width: 100%;
-      border-radius: 14px;
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.2);
+    /* Laptop Base & Keyboard Stand */
+    .laptop-keyboard-base {
+      height: 18px;
+      background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);
+      border-radius: 0 0 16px 16px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    spline-viewer {
-      width: 100%;
-      height: 100%;
+    .trackpad-notch {
+      width: 70px;
+      height: 4px;
+      background: #64748b;
+      margin: 0 auto;
+      border-radius: 0 0 4px 4px;
     }
 
-    /* Methodology & Research Modules Grid */
+    /* Open Research Diary (Physical Asset) */
+    .research-diary {
+      position: absolute;
+      bottom: -25px;
+      left: -20px;
+      width: 240px;
+      background: #ffffff;
+      border: 2px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      transform: rotate(-6deg);
+      z-index: 10;
+    }
+
+    .diary-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .diary-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 4px 0;
+    }
+
+    /* 3D Ballot Box Icon Asset */
+    .poll-box-asset {
+      position: absolute;
+      bottom: -20px;
+      right: -10px;
+      width: 90px;
+      height: 90px;
+      background: #ffffff;
+      border: 2px solid var(--border-light);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 30px rgba(11, 66, 198, 0.15);
+      transform: rotate(8deg);
+      z-index: 10;
+    }
+
+    .poll-box-asset i {
+      font-size: 2rem;
+      color: var(--accent-pink);
+    }
+
+    .poll-box-asset span {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-top: 4px;
+    }
+
+    /* Section Content */
     .main-content {
-      padding: 3.5rem 2.5rem;
+      padding: 4rem 2.5rem;
       background: var(--bg-light);
       border-top: 1px solid var(--border-light);
     }
@@ -269,13 +341,11 @@
       font-size: 2.1rem;
       font-weight: 800;
       margin-bottom: 0.5rem;
-      color: var(--text-dark);
     }
 
     .section-desc {
       color: var(--text-muted);
       margin-bottom: 2.5rem;
-      font-size: 1rem;
     }
 
     .grid-3 {
@@ -290,93 +360,35 @@
       border-radius: 18px;
       padding: 1.75rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .research-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary-blue);
     }
 
     .card-badge {
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: rgba(11, 66, 198, 0.08);
       color: var(--primary-blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
     }
 
-    .research-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: var(--text-dark);
-    }
-
-    .research-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.55;
-    }
-
-    /* Footer */
     footer {
       padding: 2rem 2.5rem;
       background: var(--bg-white);
       border-top: 1px solid var(--border-light);
       display: flex;
       justify-content: space-between;
-      align-items: center;
       color: var(--text-muted);
       font-size: 0.88rem;
-      flex-wrap: wrap;
-      gap: 1rem;
     }
 
-    /* Mobile Breakpoints */
     @media (max-width: 992px) {
-      .hero-banner {
-        grid-template-columns: 1fr;
-        padding-top: 2.5rem;
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-        padding: 1rem 1.5rem;
-      }
-      nav {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
-      nav a {
-        white-space: nowrap;
-      }
-      .hero-banner, .main-content {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-      .btn-group {
-        width: 100%;
-      }
-      .btn {
-        width: 100%;
-      }
-      .spline-container {
-        height: 270px;
-      }
+      .hero-banner { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .research-diary, .poll-box-asset { display: none; }
     }
   </style>
 </head>
@@ -402,7 +414,7 @@
       </nav>
     </header>
 
-    <!-- Hero Branding Section -->
+    <!-- Hero Section with CSS Physical Mockups -->
     <section class="hero-banner" id="summary">
       <div class="banner-left">
         <h1 class="big-heading">
@@ -426,26 +438,63 @@
         </div>
       </div>
 
-      <!-- Dark Interactive Live Data Workspace -->
-      <div class="deck-frame" id="political">
-        <div class="deck-header">
-          <div style="font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">
-            <i class="fa-solid fa-circle-dot" style="color: #22c55e; margin-right: 6px;"></i> Live Data Workspace
-          </div>
-          <div class="deck-pills">
-            <span class="deck-pill active">Summary</span>
-            <span class="deck-pill">Sentiment</span>
-            <span class="deck-pill">Mapping</span>
+      <!-- Pure CSS 3D Studio Stage (Laptop + Diary + Poll Box) -->
+      <div class="studio-stage" id="political">
+        
+        <!-- Physical Laptop Mockup -->
+        <div class="laptop-frame">
+          <div class="laptop-screen-content">
+            <div class="laptop-top-bar">
+              <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                <span class="status-dot"></span> Political Analytics Deck
+              </span>
+              <span style="font-size: 0.7rem; color: var(--text-muted);">LIVE MATRIX</span>
+            </div>
+
+            <div class="screen-dashboard-grid">
+              <div class="dash-card">
+                <h4>Assembly Segment Swing</h4>
+                <div class="metric-value" style="color: var(--accent-pink);">+14.2%</div>
+              </div>
+              <div class="dash-card">
+                <h4>Voter Sentiment Score</h4>
+                <div class="metric-value" style="color: #22c55e;">78 / 100</div>
+              </div>
+            </div>
+
+            <div class="dash-card" style="margin-top: 1rem;">
+              <h4>Spatial Mapping Density</h4>
+              <div style="height: 60px; background: rgba(11, 66, 198, 0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #93c5fd;">
+                <i class="fa-solid fa-map-location-dot" style="margin-right: 8px;"></i> Constituency Heatmap Rendered
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="spline-container">
-          <spline-viewer url="https://prod.spline.design/6W21014hN3f-i3ac/scene.splinecode"></spline-viewer>
+        <!-- Laptop Keyboard Stand Base -->
+        <div class="laptop-keyboard-base">
+          <div class="trackpad-notch"></div>
         </div>
+
+        <!-- Physical Open Research Diary Asset -->
+        <div class="research-diary">
+          <div class="diary-tag">Case Study</div>
+          <div class="diary-title">Regional Polling Efficiency</div>
+          <div style="font-size: 0.68rem; color: var(--text-muted); border-top: 1px solid #f1f5f9; padding-top: 4px; margin-top: 4px;">
+            Electoral Network Analysis & Data Verification
+          </div>
+        </div>
+
+        <!-- Physical 3D Poll Box Asset -->
+        <div class="poll-box-asset">
+          <i class="fa-solid fa-box-archive"></i>
+          <span>POLL</span>
+        </div>
+
       </div>
     </section>
 
-    <!-- Content Modules -->
+    <!-- Research Modules -->
     <section class="main-content" id="methodology">
       <h2 class="section-title">Methodology & Research Modules</h2>
       <p class="section-desc">Integrating statistical polling, spatial election mapping, and social sentiment models.</p>
