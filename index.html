@@ -16,7 +16,6 @@
       --primary-blue: #0b42c6;
       --accent-purple: #7038cc;
       --accent-pink: #e63956;
-      --accent-magenta: #d62872;
       --bg-light: #f4f7fc;
       --bg-white: #ffffff;
       --bg-dark-deck: #0b101d;
@@ -24,7 +23,6 @@
       --border-dark: rgba(255, 255, 255, 0.1);
       --text-dark: #0f172a;
       --text-muted: #64748b;
-
       --gradient-text: linear-gradient(135deg, #0b42c6 0%, #7038cc 45%, #e63956 100%);
       --gradient-btn: linear-gradient(135deg, #0b42c6 0%, #7038cc 100%);
     }
@@ -52,7 +50,7 @@
       box-shadow: 0 0 50px rgba(11, 66, 198, 0.06);
     }
 
-    /* Header Navigation */
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -111,29 +109,27 @@
       font-size: 0.9rem;
     }
 
-    nav a:hover, nav a.active {
+    nav a.active {
       color: var(--primary-blue);
     }
 
-    /* Hero Branding & Physical Mockup Section */
+    /* Hero Banner */
     .hero-banner {
-      padding: 3rem 2.5rem 4rem;
+      padding: 3.5rem 2.5rem;
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
       gap: 2rem;
       align-items: center;
-      background: radial-gradient(circle at 10% 20%, rgba(11, 66, 198, 0.03) 0%, transparent 50%),
-                  radial-gradient(circle at 90% 80%, rgba(230, 57, 86, 0.03) 0%, transparent 50%);
+      background: radial-gradient(circle at 10% 20%, rgba(11, 66, 198, 0.03) 0%, transparent 50%);
     }
 
     .big-heading {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 4.2vw, 3.8rem);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
       font-weight: 800;
       line-height: 0.98;
       letter-spacing: -1.5px;
       margin-bottom: 1.25rem;
-      color: var(--text-dark);
     }
 
     .gradient-word {
@@ -146,7 +142,6 @@
     .hero-tagline {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--text-dark);
       border-left: 4px solid var(--primary-blue);
       padding-left: 1rem;
       margin-bottom: 2rem;
@@ -155,7 +150,6 @@
     .btn-group {
       display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
     }
 
     .btn {
@@ -181,157 +175,124 @@
       background: var(--bg-white);
     }
 
-    /* --- PURE CSS PHYSICAL STUDIO & LAPTOP STAGE --- */
-    .studio-stage {
+    /* 3D Scene Components (Laptop, Diary, Ballot Box) */
+    .scene-stage {
       position: relative;
-      width: 100%;
-      perspective: 1000px;
+      padding: 20px;
     }
 
-    /* Pure CSS Laptop Body */
-    .laptop-frame {
-      background: #1e293b;
-      border: 12px solid #0f172a;
-      border-bottom: 16px solid #0f172a;
-      border-radius: 18px 18px 4px 4px;
-      box-shadow: 0 20px 40px rgba(11, 66, 198, 0.2);
-      overflow: hidden;
-      position: relative;
-      background: var(--bg-dark-deck);
+    /* CSS Laptop Mockup */
+    .laptop-outer {
+      background: #0d1322;
+      border-radius: 20px 20px 4px 4px;
+      padding: 12px 12px 0 12px;
+      box-shadow: 0 25px 50px rgba(11, 66, 198, 0.25);
+      border: 2px solid #2d3748;
     }
 
-    /* Laptop Screen Screen Header & UI */
-    .laptop-screen-content {
-      padding: 1.25rem;
+    .laptop-screen {
+      background: #0b101d;
+      border-radius: 12px 12px 0 0;
+      padding: 1rem;
       color: #fff;
       min-height: 280px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .laptop-top-bar {
+    .laptop-screen-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background: #22c55e;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 6px;
-    }
-
-    .screen-dashboard-grid {
+    .dashboard-preview {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 10px;
     }
 
     .dash-card {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 1rem;
-    }
-
-    .dash-card h4 {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 12px;
       font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
     }
 
-    .metric-value {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    /* Laptop Base & Keyboard Stand */
     .laptop-keyboard-base {
-      height: 18px;
+      height: 16px;
       background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);
       border-radius: 0 0 16px 16px;
       position: relative;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      margin-top: 2px;
     }
 
-    .trackpad-notch {
-      width: 70px;
+    .laptop-notch {
+      width: 60px;
       height: 4px;
       background: #64748b;
       margin: 0 auto;
       border-radius: 0 0 4px 4px;
     }
 
-    /* Open Research Diary (Physical Asset) */
-    .research-diary {
-      position: absolute;
-      bottom: -25px;
-      left: -20px;
-      width: 240px;
-      background: #ffffff;
-      border: 2px solid var(--border-light);
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-      transform: rotate(-6deg);
-      z-index: 10;
-    }
-
-    .diary-tag {
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: var(--primary-blue);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .diary-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin: 4px 0;
-    }
-
-    /* 3D Ballot Box Icon Asset */
-    .poll-box-asset {
-      position: absolute;
-      bottom: -20px;
-      right: -10px;
-      width: 90px;
-      height: 90px;
-      background: #ffffff;
-      border: 2px solid var(--border-light);
-      border-radius: 16px;
+    /* Floating Diary & Poll Box Elements */
+    .extra-assets-row {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 15px 30px rgba(11, 66, 198, 0.15);
-      transform: rotate(8deg);
-      z-index: 10;
+      gap: 15px;
+      margin-top: 15px;
     }
 
-    .poll-box-asset i {
-      font-size: 2rem;
+    .css-diary {
+      flex: 2;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-left: 8px solid var(--accent-purple);
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    }
+
+    .css-diary h4 {
+      font-size: 0.85rem;
+      color: var(--primary-blue);
+      margin-bottom: 4px;
+    }
+
+    .css-diary p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .css-poll-box {
+      flex: 1;
+      background: #ffffff;
+      border: 2px solid var(--accent-pink);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(230, 57, 86, 0.1);
+    }
+
+    .css-poll-box i {
+      font-size: 1.5rem;
       color: var(--accent-pink);
+      margin-bottom: 4px;
     }
 
-    .poll-box-asset span {
+    .css-poll-box span {
+      display: block;
       font-size: 0.7rem;
       font-weight: 800;
       color: var(--text-dark);
-      margin-top: 4px;
+      letter-spacing: 1px;
     }
 
-    /* Section Content */
+    /* Modules Section */
     .main-content {
-      padding: 4rem 2.5rem;
+      padding: 3.5rem 2.5rem;
       background: var(--bg-light);
       border-top: 1px solid var(--border-light);
     }
@@ -388,7 +349,6 @@
     @media (max-width: 992px) {
       .hero-banner { grid-template-columns: 1fr; }
       .grid-3 { grid-template-columns: 1fr; }
-      .research-diary, .poll-box-asset { display: none; }
     }
   </style>
 </head>
@@ -396,7 +356,6 @@
 
   <div class="app-wrapper">
 
-    <!-- Header Navigation -->
     <header>
       <a href="#" class="brand-logo">
         <div class="logo-badge"><i class="fa-solid fa-chart-pie"></i></div>
@@ -405,7 +364,6 @@
           <div class="brand-subtitle">DATA & POLITICS</div>
         </div>
       </a>
-
       <nav>
         <a href="#summary" class="active">Executive Summary</a>
         <a href="#projects">Data Viz Projects</a>
@@ -414,7 +372,6 @@
       </nav>
     </header>
 
-    <!-- Hero Section with CSS Physical Mockups -->
     <section class="hero-banner" id="summary">
       <div class="banner-left">
         <h1 class="big-heading">
@@ -423,90 +380,66 @@
           FOR DATA &<br>
           <span class="gradient-word">POLITICS</span>
         </h1>
-
-        <p class="hero-tagline">
-          Actionable Data. Professional Research.
-        </p>
-
+        <p class="hero-tagline">Actionable Data. Professional Research.</p>
         <div class="btn-group">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fa-solid fa-layer-group"></i> Explore Projects
-          </a>
-          <a href="#contact" class="btn btn-outline">
-            <i class="fa-solid fa-paper-plane"></i> Contact
-          </a>
+          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> Explore Projects</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </div>
       </div>
 
-      <!-- Pure CSS 3D Studio Stage (Laptop + Diary + Poll Box) -->
-      <div class="studio-stage" id="political">
+      <!-- CSS 3D Physical Setup Stage -->
+      <div class="scene-stage" id="political">
         
-        <!-- Physical Laptop Mockup -->
-        <div class="laptop-frame">
-          <div class="laptop-screen-content">
-            <div class="laptop-top-bar">
-              <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
-                <span class="status-dot"></span> Political Analytics Deck
-              </span>
-              <span style="font-size: 0.7rem; color: var(--text-muted);">LIVE MATRIX</span>
+        <!-- Laptop Shell -->
+        <div class="laptop-outer">
+          <div class="laptop-screen">
+            <div class="laptop-screen-header">
+              <span style="font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-circle" style="color:#22c55e;"></i> LIVE ELECTORAL DATASETS</span>
+              <span style="font-size: 0.7rem; color: var(--text-muted);">2026 ANALYTICS</span>
             </div>
-
-            <div class="screen-dashboard-grid">
+            <div class="dashboard-preview">
               <div class="dash-card">
-                <h4>Assembly Segment Swing</h4>
-                <div class="metric-value" style="color: var(--accent-pink);">+14.2%</div>
+                <i class="fa-solid fa-chart-line" style="color:var(--primary-blue);"></i>
+                <h5 style="margin-top: 5px;">Voter Sentiment</h5>
+                <p style="font-size: 0.7rem; color:#94a3b8;">+14.2% Regional Swing</p>
               </div>
               <div class="dash-card">
-                <h4>Voter Sentiment Score</h4>
-                <div class="metric-value" style="color: #22c55e;">78 / 100</div>
-              </div>
-            </div>
-
-            <div class="dash-card" style="margin-top: 1rem;">
-              <h4>Spatial Mapping Density</h4>
-              <div style="height: 60px; background: rgba(11, 66, 198, 0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #93c5fd;">
-                <i class="fa-solid fa-map-location-dot" style="margin-right: 8px;"></i> Constituency Heatmap Rendered
+                <i class="fa-solid fa-map" style="color:var(--accent-pink);"></i>
+                <h5 style="margin-top: 5px;">Spatial Density</h5>
+                <p style="font-size: 0.7rem; color:#94a3b8;">49 AC Segments</p>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Laptop Keyboard Stand Base -->
         <div class="laptop-keyboard-base">
-          <div class="trackpad-notch"></div>
+          <div class="laptop-notch"></div>
         </div>
 
-        <!-- Physical Open Research Diary Asset -->
-        <div class="research-diary">
-          <div class="diary-tag">Case Study</div>
-          <div class="diary-title">Regional Polling Efficiency</div>
-          <div style="font-size: 0.68rem; color: var(--text-muted); border-top: 1px solid #f1f5f9; padding-top: 4px; margin-top: 4px;">
-            Electoral Network Analysis & Data Verification
+        <!-- Research Diary & Ballot Box -->
+        <div class="extra-assets-row">
+          <div class="css-diary">
+            <h4>CASE STUDY: REGIONAL POLLING</h4>
+            <p>Methodology Overview & Fieldwork Logistics</p>
           </div>
-        </div>
-
-        <!-- Physical 3D Poll Box Asset -->
-        <div class="poll-box-asset">
-          <i class="fa-solid fa-box-archive"></i>
-          <span>POLL</span>
+          <div class="css-poll-box">
+            <i class="fa-solid fa-check-to-slot"></i>
+            <span>POLL BOX</span>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Research Modules -->
     <section class="main-content" id="methodology">
       <h2 class="section-title">Methodology & Research Modules</h2>
       <p class="section-desc">Integrating statistical polling, spatial election mapping, and social sentiment models.</p>
 
       <div class="grid-3" id="projects">
-        
         <div class="research-card">
           <div class="card-badge"><i class="fa-solid fa-map-location-dot"></i></div>
           <h3>Assembly Segment Mapping</h3>
           <p>Detailed spatial analysis and voter density clustering across target parliamentary and assembly constituencies.</p>
         </div>
-
         <div class="research-card">
           <div class="card-badge" style="color: var(--accent-purple); background: rgba(112, 56, 204, 0.08);">
             <i class="fa-solid fa-comments"></i>
@@ -514,7 +447,6 @@
           <h3>Pre-Poll Sentiment Analysis</h3>
           <p>Python pipelines tracking voter sentiment, keyword frequency, and digital campaign reach across regional demographics.</p>
         </div>
-
         <div class="research-card">
           <div class="card-badge" style="color: var(--accent-pink); background: rgba(230, 57, 86, 0.08);">
             <i class="fa-solid fa-network-wired"></i>
@@ -522,11 +454,9 @@
           <h3>Campaign Resource Allocation</h3>
           <p>Optimization algorithms directing ground workers and advertising spend towards critical battleground segments.</p>
         </div>
-
       </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
       <div>© 2026 Chavin Narang | Data Analyst & Political Researcher</div>
       <div style="font-weight: 600; color: var(--primary-blue);">Panipat, Haryana</div>
